@@ -7,8 +7,8 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "ops",
-	Short: "An all-purpose deployment automation tool tailored for DevOps & SRE",
+	Use:   "gru",
+	Short: "CLI tool to run maintenance tasks on GitHub repositories",
 }
 
 func Execute() {
