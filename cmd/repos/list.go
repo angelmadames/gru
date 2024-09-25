@@ -1,4 +1,4 @@
-package cmd
+package repos
 
 import (
 	"context"
@@ -9,9 +9,9 @@ import (
 	gh "gru/pkg/github"
 )
 
-var repoCmd = &cobra.Command{
-	Use:   "repos",
-	Short: "Manage repositories",
+var ListCommand = &cobra.Command{
+	Use:   "list",
+	Short: "List all existing repos for the selected GitHub owner (user, org)",
 	Run: func(cmd *cobra.Command, args []string) {
 		config := gh.BuildGitHubConfig()
 		opt := &github.RepositoryListByOrgOptions{}
@@ -33,8 +33,4 @@ var repoCmd = &cobra.Command{
 		)
 
 	},
-}
-
-func init() {
-	rootCmd.AddCommand(repoCmd)
 }

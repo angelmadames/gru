@@ -1,9 +1,12 @@
 package cmd
 
 import (
+	"gru/cmd/labels"
+	"gru/cmd/tags"
 	"os"
 
 	"github.com/spf13/cobra"
+	"gru/cmd/repos"
 )
 
 var rootCmd = &cobra.Command{
@@ -19,10 +22,7 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().BoolP(
-		"toggle",
-		"t",
-		false,
-		"Help message for toggle",
-	)
+	rootCmd.AddCommand(repos.RootCommand)
+	rootCmd.AddCommand(labels.RootCommand)
+	rootCmd.AddCommand(tags.RootCommand)
 }
