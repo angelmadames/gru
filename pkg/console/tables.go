@@ -19,7 +19,7 @@ func ReposTable(data ReposTableData) {
 	rowStyle := lipgloss.NewStyle().PaddingLeft(2).PaddingRight(2)
 
 	t.Border(lipgloss.NormalBorder())
-	t.Width(80)
+	t.Width(100)
 	t.StyleFunc(func(row, col int) lipgloss.Style {
 		switch {
 		case row == 0:
@@ -36,6 +36,9 @@ func ReposTable(data ReposTableData) {
 	)
 
 	for _, repo := range data.Repositories {
+		if repo.GetArchived() {
+			continue
+		}
 		t.Row(
 			repo.GetName(),
 			repo.GetVisibility(),
